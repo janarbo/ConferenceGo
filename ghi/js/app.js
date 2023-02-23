@@ -4,13 +4,13 @@ function createCard(name, description, pictureUrl, starts, ends, location) {
         <div class="card shadow-lg mt-3">
             <img src="${pictureUrl}" class="card-img-top">
             <div class="card-body">
-                <h5 class="card-title">${name}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">${location}</h6>
-                <p class="card-text">${description}</p>
+              <h5 class="card-title">${name}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">${location}</h6>
+              <p class="card-text">${description}</p>
             </div>
-        </div>
-        <div class="card-footer text-muted">
-        ${starts} - ${ends}
+            <div class="card-footer text-muted">
+            ${starts} - ${ends}
+            </div>
         </div>
     </div>
 `;
@@ -28,7 +28,7 @@ function createCard(name, description, pictureUrl, starts, ends, location) {
 
 
 
-  window.addEventListener('DOMContentLoaded', async () => {
+window.addEventListener('DOMContentLoaded', async () => {
     const url = 'http://localhost:8000/api/conferences/';
     try {
       const response = await fetch(url);
@@ -37,7 +37,6 @@ function createCard(name, description, pictureUrl, starts, ends, location) {
         const body = document.querySelector('main');
         const error = alert();
         body.innerHTML += error;
-  ;
       } else {
         const data = await response.json();
         for (let conference of data.conferences) {
@@ -58,7 +57,10 @@ function createCard(name, description, pictureUrl, starts, ends, location) {
             row.innerHTML += html;
           }
         }
+
+
       }
+
     } catch (e) {
       // Figure out what to do if an error is raised
 
