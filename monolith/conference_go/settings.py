@@ -39,6 +39,7 @@ AUTH_USER_MODEL = "accounts.User"
 # Application definition
 
 INSTALLED_APPS = [
+    "djwto",
     "accounts.apps.AccountsConfig",
     "events.apps.EventsConfig",
     "presentations.apps.PresentationsConfig",
@@ -49,6 +50,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+
+
 ]
 
 MIDDLEWARE = [
@@ -65,7 +68,17 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
 ]
 
+
+DJWTO_ACCESS_TOKEN_LIFETIME = None
+
+CORS_ALLOW_CREDENTIALS = True
+
 ROOT_URLCONF = "conference_go.urls"
+
+DJWTO_MODE = "TWO-COOKIES"
+
+CSRF_TRUSTED_ORIGINS = ["http://localhost:3000"]
+
 
 TEMPLATES = [
     {
