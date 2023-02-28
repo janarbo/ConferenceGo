@@ -1,6 +1,5 @@
 function createCard(name, description, pictureUrl, starts, ends, location) {
   return `
-    <div class="col-sm">
         <div class="card shadow-lg mt-3">
             <img src="${pictureUrl}" class="card-img-top">
             <div class="card-body">
@@ -12,7 +11,6 @@ function createCard(name, description, pictureUrl, starts, ends, location) {
             ${starts} - ${ends}
             </div>
         </div>
-    </div>
 `;
 }
 
@@ -27,11 +25,14 @@ function alert() {
 }
 
 
-
 window.addEventListener('DOMContentLoaded', async () => {
   const url = 'http://localhost:8000/api/conferences/';
+  const columns = document.querySelectorAll('.col');
+  let colIndex = 0;
+
   try {
     const response = await fetch(url);
+
     if (!response.ok) {
       // Figure out what to do when the response is bad
       const body = document.querySelector('main');
@@ -52,12 +53,9 @@ window.addEventListener('DOMContentLoaded', async () => {
           const location = details.conference.location.name;
           const html = createCard(name, description, pictureUrl,
             starts.toLocaleDateString('en-US'), ends.toLocaleDateString('en-US'), location);
-          console.log(html);
-          const row = document.querySelector('.row');
-          if (userIsAuthenticated) {
-            row.innerHTML += html;
-          }
-
+          const column = columns[colIndex % 3];
+          column.innerHTML += html;
+          colIndex++;
         }
       }
 
