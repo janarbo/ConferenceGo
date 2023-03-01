@@ -4,7 +4,7 @@ import Nav from './Nav';
 import ConferenceForm from './ConferenceForm'
 
 function App(props) {
-  if (props.attendees === undefined) {
+  if (props === undefined) {
     return null;
   }
   return (
