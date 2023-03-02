@@ -5,6 +5,7 @@ import ConferenceForm from './ConferenceForm'
 import AttendConferenceForm from './AttendConferenceForm'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PresentationForm from './PresentationForm'
+import MainPage from './MainPage';
 
 
 function App(props) {
@@ -25,6 +26,8 @@ function App(props) {
           <Route path="attendees" element={<AttendeesList attendees={props.attendees} />} />
           <Route path="attendees/new" element={<AttendConferenceForm />} />
           <Route path="presentations/new" element={<PresentationForm />} />
+          <Route index element={<MainPage />} />
+
 
         </Routes>
       </div>
