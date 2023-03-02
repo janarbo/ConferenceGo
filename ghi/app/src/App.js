@@ -15,7 +15,6 @@ function App(props) {
   return (
     <BrowserRouter>
       <Nav />
-      <div className="container">
         <Routes>
           <Route path="locations">
             <Route path="new" element={<LocationForm />} />
@@ -27,10 +26,7 @@ function App(props) {
           <Route path="attendees/new" element={<AttendConferenceForm />} />
           <Route path="presentations/new" element={<PresentationForm />} />
           <Route index element={<MainPage />} />
-
-
         </Routes>
-      </div>
     </BrowserRouter>
   );
 }
